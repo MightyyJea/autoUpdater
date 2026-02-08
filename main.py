@@ -50,6 +50,11 @@ def fetchNewPatch():
         print("tout est a jour !")
         return
     print("Mise a jour detecter")
+    with open(configpath, "w", encoding=4) as f:
+        data = json.load(f)
+        data["patchversion"] = serverPatch
+        json.dump(data, f, indent=4)
+
     initFeriumConf()
     modlist = requests.get(f"http://{remote}/getmodlist").json()
 

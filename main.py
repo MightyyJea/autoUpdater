@@ -45,15 +45,16 @@ def ferium(command, args):
 
 def fetchNewPatch():
     remote, patch = getremote()
-    serverPatch = requests.get(f"http://{remote}/getpatch").json
+    serverPatch = requests.get(f"http://{remote}/getpatch").json()
     if patch == serverPatch:
         print("tout est a jour !")
         return
     print("Mise a jour detecter")
-    with open(configpath, "w", encoding=4) as f:
+    with open(configpath, "r", encoding="utf-8") as f:
         data = json.load(f)
         data["patchversion"] = serverPatch
-        json.dump(data, f, indent=4)
+        with open(configpath, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=4)
 
     initFeriumConf()
     modlist = requests.get(f"http://{remote}/getmodlist").json()

@@ -1,0 +1,18 @@
+{
+  "profiles": [
+    {
+      "name": "main",
+      "output_dir": "/home/jean/Code/autoModUpdaterClient/mods",
+      "game_version": "1.21.1",
+      "mod_loader": "Fabric",
+      "mods": [
+        {
+          "name": "CobbledGacha v.2 [Fabric/NeoForge 1.21.1]",
+          "identifier": {
+            "ModrinthProject": "c1OpnQs3"
+          }
+        }
+      ]
+    }
+  ]
+}
